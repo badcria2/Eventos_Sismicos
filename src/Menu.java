@@ -1,4 +1,5 @@
 import java.text.ParseException;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -28,19 +29,19 @@ public class Menu {
             System.out.println("--------------------------------------------------------");
             System.out.print("Ingrese opción [1-4]: ");
             opcion = scanner.nextInt();
-
+            List<EventoSismico> eventoSismicoList = archivo.transformarFileEventoSismico();
             switch (opcion) {
                 case 1:
-                    eventoPorRangoAnios("MÓDULO 01 – EVENTOS POR RANGO DE AÑOS",archivo);
+                    eventoPorRangoAnios("MÓDULO 01 – EVENTOS POR RANGO DE AÑOS",eventoSismicoList);
                     break;
                 case 2:
-                    eventoPorMesDadoUnAnio("MÓDULO 02 – EVENTOS POR MES DADO UN AÑO",archivo);
+                    eventoPorMesDadoUnAnio("MÓDULO 02 – EVENTOS POR MES DADO UN AÑO",eventoSismicoList);
                     break;
                 case 3:
-                    eventoPorMagnitudesAnio();
+                    eventoPorMagnitudesAnio("MÓDULO 03 – EVENTOS POR MES DADO UN RANGO DE MAGNITUDES Y UN AÑO",eventoSismicoList);
                     break;
                 case 4:
-                    eventoPorCadaHoraAnio();
+                    eventoPorCadaHoraAnio("MÓDULO 04 – EVENTOS POR CADA HORA DADO UN AÑO",eventoSismicoList);
                     break;
                 case 0:
                     System.out.println("Fin del programa.");
@@ -52,9 +53,14 @@ public class Menu {
     }
 
     
-    private static void eventoPorRangoAnios(String nombreModulo, Archivo archivo) {
+    private static void eventoPorRangoAnios(String nombreModulo, List<EventoSismico> eventoSismicoList) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
+        System.out.print("Ingrese año a cosultar [1960-2024]: ");
+        int anioA = scanner.nextInt();
+        int anioB = scanner.nextInt();
+        FiltroEventoSismico filtroEventoSismico =  new FiltroEventoSismico();
+        List<EventoSismico> eventoSismicosFiltrado = filtroEventoSismico.filtrarPorRangoDeAnios(eventoSismicoList,anioA, anioB);
 
         do {
             System.out.println("--------------------------------------------------------");
@@ -70,7 +76,7 @@ public class Menu {
             switch (opcion) {
                 case 1:
                     System.out.println("Imprimiendo por pantalla...");
-                    // Aquí va el código para imprimir por pantalla
+                    new Reporteador().imprimirReportePorMes(eventoSismicosFiltrado);
                     break;
                 case 2:
                     System.out.println("Exportando a archivo plano...");
@@ -85,16 +91,63 @@ public class Menu {
         } while (opcion!= 0);
     }
 
-    private static void eventoPorMesDadoUnAnio(String nombreModulo, Archivo archivo) throws ParseException {
+    private static void eventoPorMesDadoUnAnio(String nombreModulo, List<EventoSismico> eventoSismicoList) throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         // aca validar el año a ingresar, solo debe estar dentro de ese rango
         System.out.print("Ingrese año a cosultar [1960-2024]: ");
         int anio = scanner.nextInt();
-        Map<Integer, Integer> frecuencias = archivo.getFrecuenciasPorMes(anio, Columna.FECHA_UTC.getColumna());
+
+        FiltroEventoSismico filtroEventoSismico =  new FiltroEventoSismico();
+        List<EventoSismico> eventoSismicosFiltrado = filtroEventoSismico.filtrarPorMesDadoAnio(eventoSismicoList, anio);
 
         int opcion;
 
+        do {
+            System.out.println("--------------------------------------------------------");
+            System.out.println(nombreModulo);
+            System.out.println("--------------------------------------------------------");
+            System.out.println("1. Imprimir por pantalla.");
+            System.out.println("2. Exportar a archivo plano.");
+            System.out.println("0. Volver al Menú Principal");
+            System.out.println("--------------------------------------------------------");
+            System.out.print("Ingrese opción [1-2]: ");
+            opcion = scanner.nextInt();
+            Reporteador reporteador =  new Reporteador();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Imprimiendo por pantalla...");
+                    reporteador.imprimirReportePorMes(eventoSismicosFiltrado);
+                    break;
+                case 2:
+                    System.out.println("Exportando a archivo plano...");
+                    reporteador.exportarReportePorMes(eventoSismicosFiltrado);
+                    break;
+                case 0:
+                    System.out.println("Volviendo al Menú Principal.");
+                    break;
+                default:
+                    System.out.println("Opción inválida. Intente nuevamente.");
+            }
+        } while (opcion!= 0);
+    }
+
+    private static void eventoPorMagnitudesAnio(String nombreModulo, List<EventoSismico> eventoSismicoList) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese año a consultar [1960-2024]: ");
+        int anio = scanner.nextInt();
+        System.out.print("Ingrese mes a consultar [1-12]: ");
+        int mes = scanner.nextInt();
+        System.out.print("Ingrese magnitud mínima: ");
+        double magnitudMin = scanner.nextDouble();
+        System.out.print("Ingrese magnitud máxima: ");
+        double magnitudMax = scanner.nextDouble();
+
+        List<EventoSismico> eventosFiltrados = new FiltroEventoSismico().filtrarPorMesYRangoDeMagnitudes(eventoSismicoList, mes, magnitudMin, magnitudMax, anio);
+        Reporteador reporteador = new Reporteador();
+
+        int opcion;
         do {
             System.out.println("--------------------------------------------------------");
             System.out.println(nombreModulo);
@@ -109,11 +162,11 @@ public class Menu {
             switch (opcion) {
                 case 1:
                     System.out.println("Imprimiendo por pantalla...");
-                    archivo.imprimirFrecuencias(frecuencias);
+                    reporteador.imprimirReportePorMes(eventosFiltrados);
                     break;
                 case 2:
                     System.out.println("Exportando a archivo plano...");
-                    archivo.exportarReporte(frecuencias);
+                    reporteador.exportarReportePorMes(eventosFiltrados);
                     break;
                 case 0:
                     System.out.println("Volviendo al Menú Principal.");
@@ -121,16 +174,52 @@ public class Menu {
                 default:
                     System.out.println("Opción inválida. Intente nuevamente.");
             }
-        } while (opcion!= 0);
+        } while (opcion != 0);
     }
 
-    private static void eventoPorMagnitudesAnio() {
-        // Aquí va el código para el módulo 3
-        System.out.println("Módulo 3");
+    private static void eventoPorCadaHoraAnio(String nombreModulo, List<EventoSismico> eventoSismicoList) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese año a consultar [1960-2024]: ");
+        int anio = scanner.nextInt();
+
+        Map<Integer, List<EventoSismico>> eventosPorHora = new FiltroEventoSismico().filtrarPorHoraYAnio(eventoSismicoList, anio);
+        Reporteador reporteador = new Reporteador();
+
+        int opcion;
+        do {
+            System.out.println("--------------------------------------------------------");
+            System.out.println(nombreModulo);
+            System.out.println("--------------------------------------------------------");
+            System.out.println("1. Imprimir por pantalla.");
+            System.out.println("2. Exportar a archivo plano.");
+            System.out.println("0. Volver al Menú Principal");
+            System.out.println("--------------------------------------------------------");
+            System.out.print("Ingrese opción [1-2]: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Imprimiendo por pantalla...");
+                    // Lógica para imprimir datos agrupados por hora
+                    for (Map.Entry<Integer, List<EventoSismico>> entry : eventosPorHora.entrySet()) {
+                        int hora = entry.getKey();
+                        List<EventoSismico> eventos = entry.getValue();
+                        System.out.printf("Hora: %02d, Eventos: %d%n", hora, eventos.size());
+                    }
+                    break;
+                case 2:
+                    System.out.println("Exportando a archivo plano...");
+                    // Lógica para exportar datos agrupados por hora
+
+                    break;
+                case 0:
+                    System.out.println("Volviendo al Menú Principal.");
+                    break;
+                default:
+                    System.out.println("Opción inválida. Intente nuevamente.");
+            }
+        } while (opcion != 0);
     }
-    private static void eventoPorCadaHoraAnio() {
-        // Aquí va el código para el módulo 4
-        System.out.println("Módulo 4");
-    }
+
 
 }
