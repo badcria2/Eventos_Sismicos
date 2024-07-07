@@ -1,9 +1,18 @@
+package entidad;
+
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
-public class EventoSismico {
+/**
+ * Clase que representa un evento sísmico.
+ *
+ * @autor [Tu Nombre]
+ */
+public final class EventoSismico {
     private int id;
     private Date fechaUTC;
     private String horaUTC;
@@ -11,9 +20,20 @@ public class EventoSismico {
     private double longitud;
     private int profundidad;
     private double magnitud;
-    private String fechaCorte;
+    private String  fechaCorte;
 
-    // Constructor
+    /**
+     * Constructor de la clase EventoSismico.
+     *
+     * @param id Identificador del evento.
+     * @param fechaUTC Fecha y hora UTC del evento.
+     * @param horaUTC Hora UTC del evento.
+     * @param latitud Latitud del evento.
+     * @param longitud Longitud del evento.
+     * @param profundidad Profundidad del evento.
+     * @param magnitud Magnitud del evento.
+     * @param fechaCorte Fecha de corte del evento.
+     */
     public EventoSismico(int id, Date fechaUTC, String horaUTC, double latitud, double longitud, int profundidad, double magnitud, String fechaCorte) {
         this.id = id;
         this.fechaUTC = fechaUTC;
@@ -25,7 +45,7 @@ public class EventoSismico {
         this.fechaCorte = fechaCorte;
     }
 
-    // Getters y Setters
+    // Getters
 
     public int getId() {
         return id;
@@ -61,15 +81,15 @@ public class EventoSismico {
 
     @Override
     public String toString() {
-        return "RegistroSismo{" +
+        return "EventoSismico{" +
                 "id=" + id +
-                ", fechaUTC='" + fechaUTC + '\'' +
+                ", fechaUTC=" + fechaUTC +
                 ", horaUTC='" + horaUTC + '\'' +
                 ", latitud=" + latitud +
                 ", longitud=" + longitud +
                 ", profundidad=" + profundidad +
                 ", magnitud=" + magnitud +
-                ", fechaCorte='" + fechaCorte + '\'' +
+                ", fechaCorte=" + fechaCorte +
                 '}';
     }
 
