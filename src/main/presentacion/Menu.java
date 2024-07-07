@@ -46,6 +46,9 @@ public class Menu {
             opcion = scanner.nextInt();
             List<EventoSismico> eventoSismicoList;
             try {
+                logger.error("EOROROR");
+                logger.info("MENSAJE ERROR");
+
                 eventoSismicoList = archivo.transformarFileEventoSismico();
             } catch (ParseException e) {
                 logger.error("Error al transformar archivo de eventos sísmicos: ", e);
