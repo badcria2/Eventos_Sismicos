@@ -1,6 +1,6 @@
-package logica;
+package main.logica;
 
-import entidad.EventoSismico;
+import main.entidad.EventoSismico;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -1,17 +1,17 @@
-package presentacion;
+package main.presentacion;
 
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import entidad.EventoSismico;
-import logica.Archivo;
-import logica.FiltroEventoSismico;
-import logica.Reporteador;
+import main.entidad.EventoSismico;
+import main.logica.Archivo;
+import main.logica.FiltroEventoSismico;
+import main.logica.Reporteador;
+import main.utilitario.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utilitario.Util;
 
 /**
  * Clase para manejar el menú de la aplicación de eventos sísmicos.

@@ -1,6 +1,6 @@
-package logica;
+package main.logica;
 
-import entidad.EventoSismico;
+import main.entidad.EventoSismico;
 
 import java.util.List;
 import java.util.Map;

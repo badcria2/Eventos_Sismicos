@@ -1,4 +1,4 @@
-package utilitario;
+package main.utilitario;
 
 /**
  * Enumeración que representa las columnas de un archivo de eventos sísmicos.

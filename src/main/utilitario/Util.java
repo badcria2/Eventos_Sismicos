@@ -1,4 +1,4 @@
-package utilitario;
+package main.utilitario;
 
 import java.util.Scanner;
 
