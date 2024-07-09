@@ -4,14 +4,14 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import main.entidad.EventoSismico;
 import main.logica.Archivo;
 import main.logica.FiltroEventoSismico;
 import main.logica.Reporteador;
-import main.utilitario.Util;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import main.utilitario.LoggingConfig;
+import main.utilitario.Util; ;
 
 /**
  * Clase para manejar el menú de la aplicación de eventos sísmicos.
@@ -19,16 +19,16 @@ import org.apache.logging.log4j.Logger;
  * @autor [Tu Nombre]
  */
 public class Menu {
-    private static final Logger logger = LogManager.getLogger(Menu.class);
+    private static final Logger logger = Logger.getLogger(PruebaLog.class.getName());
 
-    static String nombreArchivo = "C:\\Users\\reibi\\IdeaProjects\\Eventos_Sismicos\\resource\\Catalogo1960_2023.xlsx";
+    static String nombreArchivo = "C:\\Users\\reibi\\IdeaProjects\\Eventos_Sismicos\\src\\resource\\Catalogo1960_2023.xlsx";
 
     public static void main(String[] args) {
         try {
             Archivo archivo = new Archivo(nombreArchivo);
             menu(archivo);
         } catch (Exception ex) {
-            logger.error("Ha ocurrido un error: ", ex);
+            logger.warning("Ha ocurrido un error: " + ex);
         }
     }
 
@@ -39,6 +39,8 @@ public class Menu {
      * @throws ParseException Si ocurre un error al parsear el archivo.
      */
     private static void menu(Archivo archivo) throws ParseException {
+        Class<?> configClass = LoggingConfig.class;
+
         Scanner scanner = new Scanner(System.in);
         int opcion;
         do {
@@ -46,12 +48,9 @@ public class Menu {
             opcion = scanner.nextInt();
             List<EventoSismico> eventoSismicoList;
             try {
-                logger.error("EOROROR");
-                logger.info("MENSAJE ERROR");
-
                 eventoSismicoList = archivo.transformarFileEventoSismico();
             } catch (ParseException e) {
-                logger.error("Error al transformar archivo de eventos sísmicos: ", e);
+                logger.warning("Error al transformar archivo de eventos sísmicos: "+ e);
                 continue;
             }
             manejarOpcionMenu(opcion, eventoSismicoList, scanner);

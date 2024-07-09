@@ -1,8 +1,7 @@
 package main.logica;
 
 import main.entidad.EventoSismico;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import main.utilitario.LoggingConfig;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -13,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Clase para manejar la lectura y transformación de archivos Excel a objetos EventoSismico.
@@ -20,7 +20,7 @@ import java.util.List;
  * @autor [Tu Nombre]
  */
 public class Archivo {
-    private static final Logger logger = LogManager.getLogger(Archivo.class);
+    private static final java.util.logging.Logger logger = Logger.getLogger(Archivo.class.getName());
     private Sheet sheet;
 
     /**
@@ -30,11 +30,13 @@ public class Archivo {
      * @throws IOException Si ocurre un error al leer el archivo.
      */
     public Archivo(String rutaArchivo) throws IOException {
+        Class<?> configClass = LoggingConfig.class;
+
         try (FileInputStream fileInputStream = new FileInputStream(rutaArchivo);
              Workbook workbook = new XSSFWorkbook(fileInputStream)) {
             sheet = workbook.getSheetAt(0);
         } catch (IOException e) {
-            logger.error("Error al leer el archivo: " + rutaArchivo, e);
+            logger.warning("Error al leer el archivo: " + rutaArchivo + " " + e);
             throw e; // Propaga la excepción para que sea manejada en un nivel superior
         }
     }
@@ -46,6 +48,8 @@ public class Archivo {
      * @throws ParseException Si ocurre un error al parsear las fechas.
      */
     public List<EventoSismico> transformarFileEventoSismico() throws ParseException {
+        Class<?> configClass = LoggingConfig.class;
+
         List<EventoSismico> registros = new ArrayList<>();
         try {
             for (Row row : sheet) {
@@ -57,7 +61,7 @@ public class Archivo {
                 registros.add(registro);
             }
         } catch (Exception e) {
-            logger.error("Error al transformar el archivo en lista de eventos sísmicos", e);
+            logger.warning("Error al transformar el archivo en lista de eventos sísmicos " + e);
             throw e; // Propaga la excepción para que sea manejada en un nivel superior
         }
         return registros;

@@ -1,8 +1,7 @@
 package main.logica;
 
 import main.entidad.EventoSismico;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import main.utilitario.LoggingConfig;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * @autor [Tu Nombre]
  */
 public class Reporteador {
-    private static final Logger logger = LogManager.getLogger(Reporteador.class);
+    private static final java.util.logging.Logger logger = Logger.getLogger(Reporteador.class.getName());
 
     /**
      * Imprime un reporte de eventos sísmicos agrupados por mes en la consola.
@@ -28,8 +28,10 @@ public class Reporteador {
      * @param registros Lista de registros de eventos sísmicos.
      */
     public void imprimirReportePorMes(List<EventoSismico> registros) {
+        Class<?> configClass = LoggingConfig.class;
+
         if (registros == null || registros.isEmpty()) {
-            logger.warn("La lista de registros está vacía o es nula");
+            logger.info("La lista de registros está vacía o es nula");
             return;
         }
 
@@ -64,8 +66,10 @@ public class Reporteador {
      * @return El nombre del archivo generado.
      */
     public String exportarReportePorMes(List<EventoSismico> registros) {
+        Class<?> configClass = LoggingConfig.class;
+
         if (registros == null || registros.isEmpty()) {
-            logger.warn("La lista de registros está vacía o es nula");
+            logger.info("La lista de registros está vacía o es nula");
             return "No se generó ningún archivo";
         }
 
@@ -93,7 +97,7 @@ public class Reporteador {
             writer.println("===================================");
             writer.printf("%-14s  %-11d %-10s%n", "TOTAL", totalEventos, decimalFormat.format(100.00) + "%");
         } catch (IOException e) {
-            logger.error("Error al escribir en el archivo: " + nombreArchivo, e);
+            logger.warning("Error al escribir en el archivo: " + nombreArchivo +" "+  e);
             return "No se logró generar ningún archivo";
         }
         return nombreArchivo;
@@ -106,8 +110,10 @@ public class Reporteador {
      * @return El nombre del archivo generado.
      */
     public String exportarReportePorHora(Map<Integer, List<EventoSismico>> eventosPorHora) {
+        Class<?> configClass = LoggingConfig.class;
+
         if (eventosPorHora == null || eventosPorHora.isEmpty()) {
-            logger.warn("El mapa de eventos por hora está vacío o es nulo");
+            logger.warning("El mapa de eventos por hora está vacío o es nulo");
             return "No se generó ningún archivo";
         }
 
@@ -126,7 +132,7 @@ public class Reporteador {
             writer.println("====================");
             writer.printf("%-10s %-10d%n", "TOTAL", eventosPorHora.values().stream().mapToInt(List::size).sum());
         } catch (IOException e) {
-            logger.error("Error al escribir en el archivo: " + nombreArchivo, e);
+            logger.warning("Error al escribir en el archivo: " + nombreArchivo + " "+ e);
             return "No se logró generar ningún archivo";
         }
 
