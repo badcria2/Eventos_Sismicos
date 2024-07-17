@@ -7,38 +7,26 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 import main.entidad.EventoSismico;
-import main.logica.Archivo;
+import main.logica.ArchivoEventoSismico;
 import main.logica.FiltroEventoSismico;
 import main.logica.Reporteador;
 import main.utilitario.LoggingConfig;
-import main.utilitario.Util; ;
+import main.utilitario.Util;
 
-/**
- * Clase para manejar el menú de la aplicación de eventos sísmicos.
- *
- * @autor [Tu Nombre]
- */
 public class Menu {
-    private static final Logger logger = Logger.getLogger(PruebaLog.class.getName());
-
+    private static final Logger logger = Logger.getLogger(Menu.class.getName());
     static String nombreArchivo = "C:\\Users\\reibi\\IdeaProjects\\Eventos_Sismicos\\src\\resource\\Catalogo1960_2023.xlsx";
 
-    public static void main(String[] args) {
+    public void iniciarMenu() throws ParseException {
         try {
-            Archivo archivo = new Archivo(nombreArchivo);
-            menu(archivo);
+            ArchivoEventoSismico archivoEventoSismico = new ArchivoEventoSismico(nombreArchivo);
+            menu(archivoEventoSismico);
         } catch (Exception ex) {
             logger.warning("Ha ocurrido un error: " + ex);
         }
     }
 
-    /**
-     * Método principal para manejar el menú de la aplicación.
-     *
-     * @param archivo Archivo de eventos sísmicos.
-     * @throws ParseException Si ocurre un error al parsear el archivo.
-     */
-    private static void menu(Archivo archivo) throws ParseException {
+    private static void menu(ArchivoEventoSismico archivoEventoSismico) throws ParseException {
         Class<?> configClass = LoggingConfig.class;
 
         Scanner scanner = new Scanner(System.in);
@@ -48,18 +36,15 @@ public class Menu {
             opcion = scanner.nextInt();
             List<EventoSismico> eventoSismicoList;
             try {
-                eventoSismicoList = archivo.transformarFileEventoSismico();
+                eventoSismicoList = archivoEventoSismico.transformarFileEventoSismico();
             } catch (ParseException e) {
-                logger.warning("Error al transformar archivo de eventos sísmicos: "+ e);
+                logger.warning("Error al transformar archivo de eventos sísmicos: " + e);
                 continue;
             }
             manejarOpcionMenu(opcion, eventoSismicoList, scanner);
         } while (opcion != 0);
     }
 
-    /**
-     * Muestra el menú principal.
-     */
     private static void mostrarMenuPrincipal() {
         System.out.println("--------------------------------------------------------");
         System.out.println("MENU PRINCIPAL");
@@ -73,14 +58,6 @@ public class Menu {
         System.out.print("Ingrese opción [0-4]: ");
     }
 
-    /**
-     * Maneja la opción seleccionada en el menú principal.
-     *
-     * @param opcion Opción seleccionada.
-     * @param eventoSismicoList Lista de eventos sísmicos.
-     * @param scanner Scanner para la entrada del usuario.
-     * @throws ParseException Si ocurre un error al parsear los datos.
-     */
     private static void manejarOpcionMenu(int opcion, List<EventoSismico> eventoSismicoList, Scanner scanner) throws ParseException {
         switch (opcion) {
             case 1:
@@ -109,16 +86,18 @@ public class Menu {
         int anioB = Util.obtenerAnioValido(scanner);
         FiltroEventoSismico filtroEventoSismico = new FiltroEventoSismico();
         List<EventoSismico> eventoSismicosFiltrado = filtroEventoSismico.filtrarPorRangoDeAnios(eventoSismicoList, anioA, anioB);
-
-        manejarSubmenu(nombreModulo, scanner, eventoSismicosFiltrado, reporteador);
+        String tituloReporte = "Reporte A: Tabla con el número de eventos sísmicos por rango de años.\n" +
+                "(en este caso los datos corresponden al rango de años " + anioA + " - " + anioB + ")";
+        manejarSubmenu(tituloReporte, nombreModulo, scanner, eventoSismicosFiltrado, reporteador);
     }
 
     private static void eventoPorMesDadoUnAnio(String nombreModulo, List<EventoSismico> eventoSismicoList, Scanner scanner) throws ParseException {
         int anio = Util.obtenerAnioValido(scanner);
         FiltroEventoSismico filtroEventoSismico = new FiltroEventoSismico();
         List<EventoSismico> eventoSismicosFiltrado = filtroEventoSismico.filtrarPorMesDadoAnio(eventoSismicoList, anio);
-
-        manejarSubmenu(nombreModulo, scanner, eventoSismicosFiltrado, new Reporteador());
+        String tituloReporte = "Reporte B: Tabla con el número de eventos sísmicos por mes dado un año.\n" +
+                "(en este caso los datos corresponden al año " + anio + ")";
+        manejarSubmenu(tituloReporte, nombreModulo, scanner, eventoSismicosFiltrado, new Reporteador());
     }
 
     private static void eventoPorMagnitudesAnio(String nombreModulo, List<EventoSismico> eventoSismicoList, Scanner scanner) {
@@ -126,20 +105,22 @@ public class Menu {
         int mes = Util.obtenerMesValido(scanner);
         double magnitudMin = Util.obtenerMagnitudValida(scanner, "mínima");
         double magnitudMax = Util.obtenerMagnitudValida(scanner, "máxima");
-
+        String tituloReporte = "Reporte C: Tabla con el número de eventos sísmicos por mes dado un rango de magnitudes y un año.\n" +
+                "(en este caso los datos corresponden al año " + anio + ", mes" + mes + ", magnitud mínima " + magnitudMin + ", magnitud máxima " + magnitudMax + ")";
         List<EventoSismico> eventoSismicosFiltrado = new FiltroEventoSismico().filtrarPorMesYRangoDeMagnitudes(eventoSismicoList, mes, magnitudMin, magnitudMax, anio);
-        manejarSubmenu(nombreModulo, scanner, eventoSismicosFiltrado, new Reporteador());
+        manejarSubmenu(tituloReporte, nombreModulo, scanner, eventoSismicosFiltrado, new Reporteador());
     }
 
     private static void eventoPorCadaHoraAnio(String nombreModulo, List<EventoSismico> eventoSismicoList, Scanner scanner) {
         int anio = Util.obtenerAnioValido(scanner);
         Map<Integer, List<EventoSismico>> eventosPorHora = new FiltroEventoSismico().filtrarPorHoraYAnio(eventoSismicoList, anio);
         Reporteador reporteador = new Reporteador();
-
-        manejarSubmenuHora(nombreModulo, scanner, eventosPorHora, reporteador);
+        String tituloReporte = "Reporte D: Tabla con el número de eventos sísmicos por cada hora dado un año.\n" +
+                "(en este caso los datos corresponden al año " + anio + ")";
+        manejarSubmenuHora(tituloReporte, nombreModulo, scanner, eventosPorHora, reporteador);
     }
 
-    private static void manejarSubmenu(String nombreModulo, Scanner scanner, List<EventoSismico> eventoSismicosFiltrado, Reporteador reporteador) {
+    private static void manejarSubmenu(String tituloReporte, String nombreModulo, Scanner scanner, List<EventoSismico> eventoSismicosFiltrado, Reporteador reporteador) {
         int opcion;
         do {
             mostrarSubmenu(nombreModulo);
@@ -148,11 +129,11 @@ public class Menu {
             switch (opcion) {
                 case 1:
                     System.out.println("Imprimiendo por pantalla...");
-                    reporteador.imprimirReportePorMes(eventoSismicosFiltrado);
+                    reporteador.imprimirReportePorMes(eventoSismicosFiltrado, tituloReporte);
                     break;
                 case 2:
                     System.out.println("Exportando a archivo plano...");
-                    String nombreArchivo = reporteador.exportarReportePorMes(eventoSismicosFiltrado);
+                    String nombreArchivo = reporteador.exportarReportePorMes(eventoSismicosFiltrado, tituloReporte);
                     System.out.println("El archivo: " + nombreArchivo + " se logró exportar exitosamente.");
                     break;
                 case 0:
@@ -164,7 +145,7 @@ public class Menu {
         } while (opcion != 0);
     }
 
-    private static void manejarSubmenuHora(String nombreModulo, Scanner scanner, Map<Integer, List<EventoSismico>> eventosPorHora, Reporteador reporteador) {
+    private static void manejarSubmenuHora(String tituloReporte, String nombreModulo, Scanner scanner, Map<Integer, List<EventoSismico>> eventosPorHora, Reporteador reporteador) {
         int opcion;
         do {
             mostrarSubmenu(nombreModulo);
@@ -181,7 +162,7 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("Exportando a archivo plano...");
-                    String nombreArchivo = reporteador.exportarReportePorHora(eventosPorHora);
+                    String nombreArchivo = reporteador.exportarReportePorHora(eventosPorHora, tituloReporte);
                     System.out.println("El archivo: " + nombreArchivo + " se logró exportar exitosamente.");
                     break;
                 case 0:

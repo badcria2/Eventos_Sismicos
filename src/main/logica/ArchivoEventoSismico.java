@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  *
  * @autor [Tu Nombre]
  */
-public class Archivo {
-    private static final java.util.logging.Logger logger = Logger.getLogger(Archivo.class.getName());
+public class ArchivoEventoSismico {
+    private static final java.util.logging.Logger logger = Logger.getLogger(ArchivoEventoSismico.class.getName());
     private Sheet sheet;
 
     /**
@@ -29,7 +29,7 @@ public class Archivo {
      * @param rutaArchivo Ruta del archivo Excel.
      * @throws IOException Si ocurre un error al leer el archivo.
      */
-    public Archivo(String rutaArchivo) throws IOException {
+    public ArchivoEventoSismico(String rutaArchivo) throws IOException {
         Class<?> configClass = LoggingConfig.class;
 
         try (FileInputStream fileInputStream = new FileInputStream(rutaArchivo);

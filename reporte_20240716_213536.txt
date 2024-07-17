@@ -1,0 +1,17 @@
+Reporte B: Tabla con el número de eventos sísmicos por mes dado un año.
+(en este caso los datos corresponden al año 2023)Nº  MES          FREC       PORC      
+===================================
+01 ENERO        32         6,85%     
+02 FEBRERO      31         6,64%     
+03 MARZO        52         11,13%    
+04 ABRIL        23         4,93%     
+05 MAYO         38         8,14%     
+06 JUNIO        45         9,64%     
+07 JULIO        41         8,78%     
+08 AGOSTO       48         10,28%    
+09 SETIEMBRE    33         7,07%     
+10 OCTUBRE      39         8,35%     
+11 NOVIEMBRE    34         7,28%     
+12 DICIEMBRE    51         10,92%    
+===================================
+TOTAL           467         100%      

@@ -27,7 +27,7 @@ public class Reporteador {
      *
      * @param registros Lista de registros de eventos sísmicos.
      */
-    public void imprimirReportePorMes(List<EventoSismico> registros) {
+    public void imprimirReportePorMes(List<EventoSismico> registros, String tituloReporte) {
         Class<?> configClass = LoggingConfig.class;
 
         if (registros == null || registros.isEmpty()) {
@@ -44,6 +44,7 @@ public class Reporteador {
         String[] meses = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SETIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
 
         // Imprimir el encabezado
+        System.out.println(tituloReporte+"\n");
         System.out.printf("%-3s %-12s %-10s %-10s%n", "Nº", "MES", "FREC", "PORC");
         System.out.println("===================================");
 
@@ -65,7 +66,7 @@ public class Reporteador {
      * @param registros Lista de registros de eventos sísmicos.
      * @return El nombre del archivo generado.
      */
-    public String exportarReportePorMes(List<EventoSismico> registros) {
+    public String exportarReportePorMes(List<EventoSismico> registros, String tituloReporte) {
         Class<?> configClass = LoggingConfig.class;
 
         if (registros == null || registros.isEmpty()) {
@@ -83,7 +84,9 @@ public class Reporteador {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String[] meses = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SETIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
 
+
         try (PrintWriter writer = new PrintWriter(new FileWriter(nombreArchivo))) {
+            writer.printf(tituloReporte+"\n");
             writer.printf("%-3s %-12s %-10s %-10s%n", "Nº", "MES", "FREC", "PORC");
             writer.println("===================================");
 
@@ -109,7 +112,7 @@ public class Reporteador {
      * @param eventosPorHora Mapa de eventos sísmicos agrupados por hora.
      * @return El nombre del archivo generado.
      */
-    public String exportarReportePorHora(Map<Integer, List<EventoSismico>> eventosPorHora) {
+    public String exportarReportePorHora(Map<Integer, List<EventoSismico>> eventosPorHora, String tituloReporte) {
         Class<?> configClass = LoggingConfig.class;
 
         if (eventosPorHora == null || eventosPorHora.isEmpty()) {
@@ -120,6 +123,7 @@ public class Reporteador {
         String nombreArchivo = generarNombreArchivo();
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(nombreArchivo))) {
+            writer.println(tituloReporte+"\n");
             writer.printf("%-5s %-10s%n", "HORA", "EVENTOS");
             writer.println("====================");
 
