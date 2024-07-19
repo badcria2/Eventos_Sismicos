@@ -22,8 +22,8 @@ public class ArchivoUsuario {
 
         while ((linea = lector.readLine()) != null) {
             String[] partes = linea.split(",");
-            if (partes.length == 2) {
-                usuarios.add(new Usuario(partes[0], partes[1]));
+            if (partes.length == 3) {
+                usuarios.add(new Usuario(partes[0], partes[1], partes[2]));
             }
         }
 

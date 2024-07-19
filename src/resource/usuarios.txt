@@ -1,3 +1,4 @@
-usuario,contraseña
-jperez,123
-rmanco,321
+usuario,contraseña,nombrePersona
+jperez,123,Juan
+rmanco,321,Renzo
+alex,123,Alex

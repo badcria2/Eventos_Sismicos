@@ -1,0 +1,302 @@
+jul 18, 2024 10:49:49 PM main.presentacion.PruebaLog main
+INFORMACIÓN: Esto es una prueba de log.
+jul 18, 2024 10:49:49 PM main.presentacion.PruebaLog main
+ADVERTENCIA: Esto es un mensaje de advertencia.
+jul 18, 2024 10:49:49 PM main.presentacion.PruebaLog main
+DETALLADO: Esto es una prueba de log a nivel FINE.
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = JMImplementation:type=MBeanServerDelegate
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = JMImplementation:type=MBeanServerDelegate
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object JMImplementation:type=MBeanServerDelegate
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered JMImplementation:type=MBeanServerDelegate
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=ClassLoading
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.ClassLoadingImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=ClassLoading
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=ClassLoading
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:type=ClassLoading
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=ClassLoading
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=Compilation
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.CompilationImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=Compilation
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=Compilation
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:type=Compilation
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=Compilation
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=Memory
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=Memory
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=Memory
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:type=Memory
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=Memory
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=GarbageCollector,name=Copy
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.GarbageCollectorImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=GarbageCollector,name=Copy
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=GarbageCollector,name=Copy
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=Copy,type=GarbageCollector
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=GarbageCollector,name=Copy
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=GarbageCollector,name=MarkSweepCompact
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.GarbageCollectorImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=GarbageCollector,name=MarkSweepCompact
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=GarbageCollector,name=MarkSweepCompact
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=MarkSweepCompact,type=GarbageCollector
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=GarbageCollector,name=MarkSweepCompact
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=MemoryManager,name=CodeCacheManager
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryManagerImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=MemoryManager,name=CodeCacheManager
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=MemoryManager,name=CodeCacheManager
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=CodeCacheManager,type=MemoryManager
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=MemoryManager,name=CodeCacheManager
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=MemoryManager,name=Metaspace Manager
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryManagerImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=MemoryManager,name=Metaspace Manager
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=MemoryManager,name=Metaspace Manager
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=Metaspace Manager,type=MemoryManager
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=MemoryManager,name=Metaspace Manager
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=GarbageCollector,name=Copy
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=GarbageCollector,name=MarkSweepCompact
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=MemoryPool,name=Code Cache
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryPoolImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=MemoryPool,name=Code Cache
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=MemoryPool,name=Code Cache
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=Code Cache,type=MemoryPool
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=MemoryPool,name=Code Cache
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=MemoryPool,name=Metaspace
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryPoolImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=MemoryPool,name=Metaspace
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=MemoryPool,name=Metaspace
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=Metaspace,type=MemoryPool
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=MemoryPool,name=Metaspace
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=MemoryPool,name=Eden Space
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryPoolImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=MemoryPool,name=Eden Space
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=MemoryPool,name=Eden Space
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=Eden Space,type=MemoryPool
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=MemoryPool,name=Eden Space
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=MemoryPool,name=Survivor Space
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryPoolImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=MemoryPool,name=Survivor Space
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=MemoryPool,name=Survivor Space
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=Survivor Space,type=MemoryPool
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=MemoryPool,name=Survivor Space
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=MemoryPool,name=Tenured Gen
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.MemoryPoolImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=MemoryPool,name=Tenured Gen
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=MemoryPool,name=Tenured Gen
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:name=Tenured Gen,type=MemoryPool
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=MemoryPool,name=Tenured Gen
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=OperatingSystem
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.OperatingSystemImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=OperatingSystem
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=OperatingSystem
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:type=OperatingSystem
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=OperatingSystem
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=Runtime
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.RuntimeImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=Runtime
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=Runtime
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:type=Runtime
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=Runtime
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=Threading
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.ThreadImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.lang:type=Threading
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.lang:type=Threading
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.lang:type=Threading
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.lang:type=Threading
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.util.logging:type=Logging
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.ManagementFactoryHelper$PlatformLoggingImpl
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.util.logging:type=Logging
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.util.logging:type=Logging
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.util.logging:type=Logging
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.util.logging:type=Logging
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.nio:type=BufferPool,name=direct
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.ManagementFactoryHelper$1
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.nio:type=BufferPool,name=direct
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.nio:type=BufferPool,name=direct
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.nio:name=direct,type=BufferPool
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.nio:type=BufferPool,name=direct
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.nio:type=BufferPool,name=mapped
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.ManagementFactoryHelper$1
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = java.nio:type=BufferPool,name=mapped
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = java.nio:type=BufferPool,name=mapped
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object java.nio:name=mapped,type=BufferPool
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered java.nio:type=BufferPool,name=mapped
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=GarbageCollector,name=Copy
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=GarbageCollector,name=MarkSweepCompact
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = java.lang:type=OperatingSystem
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = com.sun.management:type=HotSpotDiagnostic
+jul 18, 2024 10:56:25 PM javax.management.MBeanServerFactory getMBeanInfo
+MUY DETALLADO: Building MBeanInfo for sun.management.HotSpotDiagnostic
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = com.sun.management:type=HotSpotDiagnostic
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = com.sun.management:type=HotSpotDiagnostic
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object com.sun.management:type=HotSpotDiagnostic
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered com.sun.management:type=HotSpotDiagnostic
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = com.sun.management:type=DiagnosticCommand
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = com.sun.management:type=DiagnosticCommand
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object com.sun.management:type=DiagnosticCommand
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered com.sun.management:type=DiagnosticCommand
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = org.apache.logging.log4j2:type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = org.apache.logging.log4j2:type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = org.apache.logging.log4j2:type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object org.apache.logging.log4j2:type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered org.apache.logging.log4j2:type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = org.apache.logging.log4j2:type=b4aac2,component=StatusLogger
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = org.apache.logging.log4j2:type=b4aac2,component=StatusLogger
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = org.apache.logging.log4j2:type=b4aac2,component=StatusLogger
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object org.apache.logging.log4j2:component=StatusLogger,type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered org.apache.logging.log4j2:type=b4aac2,component=StatusLogger
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = org.apache.logging.log4j2:type=b4aac2,component=ContextSelector
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = org.apache.logging.log4j2:type=b4aac2,component=ContextSelector
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = org.apache.logging.log4j2:type=b4aac2,component=ContextSelector
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object org.apache.logging.log4j2:component=ContextSelector,type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered org.apache.logging.log4j2:type=b4aac2,component=ContextSelector
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository contains
+MUY DETALLADO:  name = org.apache.logging.log4j2:type=b4aac2,component=Appenders,name=DefaultConsole-2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerMBean
+MUY DETALLADO: ObjectName = org.apache.logging.log4j2:type=b4aac2,component=Appenders,name=DefaultConsole-2
+jul 18, 2024 10:56:25 PM com.sun.jmx.mbeanserver.Repository addMBean
+MUY DETALLADO: name = org.apache.logging.log4j2:type=b4aac2,component=Appenders,name=DefaultConsole-2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor addObject
+MUY DETALLADO: Send create notification of object org.apache.logging.log4j2:component=Appenders,name=DefaultConsole-2,type=b4aac2
+jul 18, 2024 10:56:25 PM com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification
+MUY DETALLADO: JMX.mbean.registered org.apache.logging.log4j2:type=b4aac2,component=Appenders,name=DefaultConsole-2
+jul 18, 2024 10:57:01 PM com.sun.jmx.mbeanserver.Repository retrieve
+MUY DETALLADO: name = org.apache.logging.log4j2:type=b4aac2

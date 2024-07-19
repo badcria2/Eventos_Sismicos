@@ -4,15 +4,19 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import main.entidad.Usuario;
 import main.logica.ArchivoUsuario;
 import main.logica.Autenticador;
 import main.presentacion.Menu;
+import main.utilitario.LoggingConfig;
 
 public class Login {
+    private static final Logger logger = Logger.getLogger(Login.class.getName());
 
     private static void mostrarBienvenida() {
+        //limpiarPantalla();
         System.out.println("==================================");
         System.out.println("|                                |");
         System.out.println("|       Bienvenido al Sistema    |");
@@ -21,12 +25,14 @@ public class Login {
     }
 
     private static void mostrarLogin() {
+        //limpiarPantalla();
         System.out.println("==================================");
         System.out.println("|        Inicio de Sesión        |");
         System.out.println("==================================");
     }
 
     private static void mostrarCargando() {
+        //limpiarPantalla();
         System.out.println("==================================");
         System.out.println("|                                |");
         System.out.println("|       Cargando Aplicación...   |");
@@ -34,7 +40,11 @@ public class Login {
         System.out.println("==================================");
     }
 
+
+
     public static void main(String[] args) {
+        LoggingConfig.init();
+
         Scanner scanner = new Scanner(System.in);
         ArchivoUsuario archivoUsuarios = new ArchivoUsuario("C:\\Users\\reibi\\IdeaProjects\\Eventos_Sismicos\\src\\resource\\usuarios.txt");
 
@@ -55,7 +65,8 @@ public class Login {
                 String contraseña = scanner.nextLine();
 
                 if (autenticador.autenticar(nombre, contraseña)) {
-                    System.out.println("Bienvenido " + nombre + "!");
+                    Usuario user = autenticador.obtenerDatosUsuario(nombre, contraseña);
+                    System.out.println("Bienvenido " + user.getNombreUsuario() + "!");
                     autenticado = true;
 
                     // Mostrar evento de carga
@@ -69,7 +80,7 @@ public class Login {
                     }
 
                     // Redirigir al menú principal de la aplicación
-                    Menu menu = new Menu();
+                    Menu menu = new Menu(user.getNombreUsuario());
                     menu.iniciarMenu();
                 } else {
                     intentos++;
@@ -82,9 +93,9 @@ public class Login {
             }
 
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo de usuarios: " + e.getMessage());
+            logger.warning("Error al leer el archivo de usuarios: " + e.getMessage());
         } catch (ParseException e) {
-            System.out.println("Error al iniciar el menú: " + e.getMessage());
+            logger.warning("Error al iniciar el menú: " + e.getMessage());
         }
 
         scanner.close();

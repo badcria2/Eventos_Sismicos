@@ -28,7 +28,7 @@ public class Reporteador {
      * @param registros Lista de registros de eventos sísmicos.
      */
     public void imprimirReportePorMes(List<EventoSismico> registros, String tituloReporte) {
-        Class<?> configClass = LoggingConfig.class;
+        LoggingConfig.init();
 
         if (registros == null || registros.isEmpty()) {
             logger.info("La lista de registros está vacía o es nula");
@@ -67,7 +67,7 @@ public class Reporteador {
      * @return El nombre del archivo generado.
      */
     public String exportarReportePorMes(List<EventoSismico> registros, String tituloReporte) {
-        Class<?> configClass = LoggingConfig.class;
+        LoggingConfig.init();
 
         if (registros == null || registros.isEmpty()) {
             logger.info("La lista de registros está vacía o es nula");
@@ -113,7 +113,7 @@ public class Reporteador {
      * @return El nombre del archivo generado.
      */
     public String exportarReportePorHora(Map<Integer, List<EventoSismico>> eventosPorHora, String tituloReporte) {
-        Class<?> configClass = LoggingConfig.class;
+        LoggingConfig.init();
 
         if (eventosPorHora == null || eventosPorHora.isEmpty()) {
             logger.warning("El mapa de eventos por hora está vacío o es nulo");

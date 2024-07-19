@@ -1,4 +1,2 @@
-jul 16, 2024 9:34:46 PM main.presentacion.PruebaLog main
-INFORMACIÓN: Esto es una prueba de log.
-jul 16, 2024 9:34:47 PM main.presentacion.PruebaLog main
-ADVERTENCIA: Esto es un mensaje de advertencia.
+jul 18, 2024 10:57:15 PM main.presentacion.Menu iniciarMenu
+ADVERTENCIA: Ha ocurrido un error: java.util.InputMismatchException Usuario: Juan

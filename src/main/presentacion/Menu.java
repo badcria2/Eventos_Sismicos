@@ -16,18 +16,22 @@ import main.utilitario.Util;
 public class Menu {
     private static final Logger logger = Logger.getLogger(Menu.class.getName());
     static String nombreArchivo = "C:\\Users\\reibi\\IdeaProjects\\Eventos_Sismicos\\src\\resource\\Catalogo1960_2023.xlsx";
-
+    private static String usuarioAuditoria;
+    public Menu(String usuarioAuditoria){
+        this.usuarioAuditoria = usuarioAuditoria;
+    }
     public void iniciarMenu() throws ParseException {
         try {
+            LoggingConfig.init();
             ArchivoEventoSismico archivoEventoSismico = new ArchivoEventoSismico(nombreArchivo);
             menu(archivoEventoSismico);
         } catch (Exception ex) {
-            logger.warning("Ha ocurrido un error: " + ex);
+            logger.warning("Ha ocurrido un error: " + ex + " Usuario: "+ this.usuarioAuditoria);
         }
     }
 
     private static void menu(ArchivoEventoSismico archivoEventoSismico) throws ParseException {
-        Class<?> configClass = LoggingConfig.class;
+        LoggingConfig.init();
 
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -38,7 +42,7 @@ public class Menu {
             try {
                 eventoSismicoList = archivoEventoSismico.transformarFileEventoSismico();
             } catch (ParseException e) {
-                logger.warning("Error al transformar archivo de eventos sísmicos: " + e);
+                logger.warning("Error al transformar archivo de eventos sísmicos: " + e + " Usuario: "+ usuarioAuditoria);
                 continue;
             }
             manejarOpcionMenu(opcion, eventoSismicoList, scanner);

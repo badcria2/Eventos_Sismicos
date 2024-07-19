@@ -30,7 +30,7 @@ public class ArchivoEventoSismico {
      * @throws IOException Si ocurre un error al leer el archivo.
      */
     public ArchivoEventoSismico(String rutaArchivo) throws IOException {
-        Class<?> configClass = LoggingConfig.class;
+        LoggingConfig.init();
 
         try (FileInputStream fileInputStream = new FileInputStream(rutaArchivo);
              Workbook workbook = new XSSFWorkbook(fileInputStream)) {
@@ -48,7 +48,7 @@ public class ArchivoEventoSismico {
      * @throws ParseException Si ocurre un error al parsear las fechas.
      */
     public List<EventoSismico> transformarFileEventoSismico() throws ParseException {
-        Class<?> configClass = LoggingConfig.class;
+        LoggingConfig.init();
 
         List<EventoSismico> registros = new ArrayList<>();
         try {
